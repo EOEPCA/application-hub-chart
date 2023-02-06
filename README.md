@@ -13,8 +13,7 @@ cd application-hub-chart
 helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
 helm repo update
 ```
-
-This should show output like:
+  This should show output like:
 ```
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
@@ -30,7 +29,13 @@ helm upgrade --cleanup-on-fail \
   --namespace application-hub \
   --create-namespace \
   --version=1.0.0 \
-  --values config.yaml
+  --values config.json
 ```
+
+- Port forward traffic to the k8s Service proxy-public with kubectl to access it from your computer.
+```
+kubectl --namespace=eoepcahub port-forward service/proxy-public 8080:http
+```
+- Try insecure HTTP access: http://localhost:8080
 
 
