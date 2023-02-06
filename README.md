@@ -29,7 +29,7 @@ helm upgrade --cleanup-on-fail \
   --namespace application-hub \
   --create-namespace \
   --version=1.0.0 \
-  --values config.json
+  --values file/config.json
 ```
 
 - Port forward traffic to the k8s Service proxy-public with kubectl to access it from your computer.
